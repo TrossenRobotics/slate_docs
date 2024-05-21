@@ -2,7 +2,7 @@
 SLATE
 =====
 
-.. image:: images/header.png
+.. image:: images/header.jpg
   :align: center
   :width: 100%
 

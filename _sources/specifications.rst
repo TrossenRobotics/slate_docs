@@ -12,8 +12,8 @@ Packing List
 * 1x Male-to-Male USB Type-A 3.0
 * 1x Aviation Plug to Screw Terminated VBAT, 12V
 
-Specifications
-==============
+Specifications Overview
+=======================
 
 .. list-table::
   :align: center
