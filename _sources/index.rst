@@ -11,6 +11,7 @@ What's Here
 
 * :doc:`specifications` - Specifications for the SLATE mobile base.
 * :doc:`getting_started` - Guides to walk you through the process of setting up your SLATE mobile base.
+* :doc:`troubleshooting` - Small guides to walk users through possible issues that may occur when using the SLATE mobile base.
 
 Table of Contents
 =================
@@ -20,3 +21,4 @@ Table of Contents
 
   specifications.rst
   getting_started.rst
+  troubleshooting.rst
