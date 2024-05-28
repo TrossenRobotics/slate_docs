@@ -97,8 +97,8 @@
 <h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h1>
 <div class="section" id="slate-driver-can-t-connect-to-base">
 <h2>SLATE driver can’t connect to base<a class="headerlink" href="#slate-driver-can-t-connect-to-base" title="Permalink to this headline"></a></h2>
-<p>The USB-Serial converter device shares the same vendor and product ID with a brail readers.
-Because of this, the <code class="docutils literal notranslate"><span class="pre">brltty</span></code> program will claim the device, preventing its use by other drivers.
+<p>The USB-Serial converter device shares the same vendor and product ID with some brail readers.
+Because of this, the <code class="docutils literal notranslate"><span class="pre">brltty</span></code> program may claim the device, preventing its use by other drivers.
 Solving this issue is as simple as removing the package using apt.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span>brltty
 </pre></div>
