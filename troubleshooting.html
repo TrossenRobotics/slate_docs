@@ -63,6 +63,7 @@
 <li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#slate-base-error-codes">SLATE Base Error Codes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#slate-driver-can-t-connect-to-base">SLATE driver can’t connect to base</a></li>
 </ul>
 </li>
@@ -95,6 +96,97 @@
              
   <div class="section" id="troubleshooting">
 <h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h1>
+<div class="section" id="slate-base-error-codes">
+<h2>SLATE Base Error Codes<a class="headerlink" href="#slate-base-error-codes" title="Permalink to this headline"></a></h2>
+<p>The following table lists common errors that can be indicated on the base’s screen, their cause, and their solution.</p>
+<table border="1" class="docutils align-center">
+<colgroup>
+<col width="20%" />
+<col width="8%" />
+<col width="32%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Error Name</th>
+<th class="head">Code</th>
+<th class="head">Cause</th>
+<th class="head">Solution</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Emergency Stop</td>
+<td>E-Stop</td>
+<td>Emergency stop button is pressed</td>
+<td>Release E-Stop button</td>
+</tr>
+<tr class="row-odd"><td>Communication Error</td>
+<td>Err18</td>
+<td>CAN bus communication is offline</td>
+<td>Contact support</td>
+</tr>
+<tr class="row-even"><td>Collision Error</td>
+<td>Collision</td>
+<td>Collision sensor triggered</td>
+<td>Remove SLATE base from its collision</td>
+</tr>
+<tr class="row-odd"><td>Battery Undervoltage</td>
+<td>U-Vol</td>
+<td>Battery voltage too low</td>
+<td>Charge the SLATE base</td>
+</tr>
+<tr class="row-even"><td>Battery Overvoltage</td>
+<td>O-Vol</td>
+<td>Battery voltage too high</td>
+<td>If using the original battery, overvoltage can be ignored</td>
+</tr>
+<tr class="row-odd"><td>Driver Error</td>
+<td>Err25</td>
+<td>Malfunctioning driver</td>
+<td>Contact support</td>
+</tr>
+<tr class="row-even"><td>Drive Overvoltage</td>
+<td>Err26</td>
+<td>Drive voltage is too high</td>
+<td>If using the original battery, this should not occur</td>
+</tr>
+<tr class="row-odd"><td>Drive Undervoltage</td>
+<td>Err27</td>
+<td>Drive voltage is too low</td>
+<td>If using the original battery, this should not occur</td>
+</tr>
+<tr class="row-even"><td>Drive Overtemperature</td>
+<td>Err28</td>
+<td>High drive temperature</td>
+<td>Contact support</td>
+</tr>
+<tr class="row-odd"><td>Drive Overcurrent</td>
+<td>Err29</td>
+<td>Drive motor current is too high</td>
+<td>Contact support</td>
+</tr>
+<tr class="row-even"><td>Drive servo out of tolerance</td>
+<td>Err30</td>
+<td>Drive motor is out of tolerance</td>
+<td>Contact support</td>
+</tr>
+<tr class="row-odd"><td>Drive Overload</td>
+<td>Err31</td>
+<td>Drive current has exceeded 200% of rated load</td>
+<td>Check if the wheels are blocked. Contact support</td>
+</tr>
+<tr class="row-even"><td>Encoder Error</td>
+<td>Err32</td>
+<td>Drive encoder signal is malformed</td>
+<td>Contact support</td>
+</tr>
+<tr class="row-odd"><td>Hall Error</td>
+<td>Err33</td>
+<td>The Hall sensor signal is malformed</td>
+<td>Contact support</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="slate-driver-can-t-connect-to-base">
 <h2>SLATE driver can’t connect to base<a class="headerlink" href="#slate-driver-can-t-connect-to-base" title="Permalink to this headline"></a></h2>
 <p>The USB-Serial converter device shares the same vendor and product ID with some brail readers.
