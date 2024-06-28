@@ -22,5 +22,6 @@ Table of Contents
 
   specifications.rst
   getting_started.rst
+  operation.rst
   troubleshooting.rst
   downloads.rst
