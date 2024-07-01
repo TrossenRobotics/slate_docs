@@ -79,3 +79,13 @@ The **slate_base_node** has the following parameters:
   * **Type**: string
   * **Description**: The name of the base_link frame when publishing the odom->base_link TF.
   * **Default**: ``"base_link"``
+
+Usage
+=====
+
+Using rosrun
+------------
+
+.. code-block:: bash
+
+  $ rosrun interbotix_slate_driver slate_base_node
