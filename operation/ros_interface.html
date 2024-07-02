@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Remote Controller Usage &mdash; SLATE Documentation</title>
+  <title>ROS Interface Operation &mdash; SLATE Documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ROS Interface Operation" href="ros_interface.html" />
-    <link rel="prev" title="Operation" href="../operation.html" /> 
+    <link rel="next" title="ROS 1 Interface Operation" href="ros_interface/ros1.html" />
+    <link rel="prev" title="Remote Controller Usage" href="rc_controller.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -63,12 +63,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../specifications.html">Specifications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../operation.html">Operation</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Remote Controller Usage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#rc-overview">RC Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-the-rc">Using the RC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rc_controller.html">Remote Controller Usage</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ROS Interface Operation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ros_interface/ros1.html">ROS 1 Interface Operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ros_interface/ros2.html">ROS 2 Interface Operation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ros_interface.html">ROS Interface Operation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
@@ -90,9 +90,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../operation.html">Operation</a></li>
-      <li class="breadcrumb-item active">Remote Controller Usage</li>
+      <li class="breadcrumb-item active">ROS Interface Operation</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/TrossenRobotics/slate_docs/blob/main/docs/operation/rc_controller.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/TrossenRobotics/slate_docs/blob/main/docs/operation/ros_interface.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -100,24 +100,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="remote-controller-usage">
-<h1>Remote Controller Usage<a class="headerlink" href="#remote-controller-usage" title="Permalink to this headline"></a></h1>
-<div class="section" id="rc-overview">
-<h2>RC Overview<a class="headerlink" href="#rc-overview" title="Permalink to this headline"></a></h2>
-<p>The SLATE comes with a FlySky FS-i6S remote controller.
-The RC can command velocities to the SLATE directly without the use of secondary computer.</p>
-<img alt="../_images/rc.png" class="align-center" src="../_images/rc.png" style="width: 80%;" />
-</div>
-<div class="section" id="using-the-rc">
-<h2>Using the RC<a class="headerlink" href="#using-the-rc" title="Permalink to this headline"></a></h2>
-<ol class="arabic simple">
-<li>Turn on the Remote Controller by holding down both power switches.
-The screen with turn on and a chime will play.</li>
-<li>Make sure all switches (SwA, SwB, SwC, SwD) are placed in the UP position on startup for safety.</li>
-<li>Enable manual control of the base by setting the second switch from the left (SwB) to its MIDDLE position.</li>
-<li>Use the left stick up/down to command forwards or backwards linear velocities.</li>
-<li>Use the right stick left/right to command counter-clockwise or clockwise angular velocities.</li>
-</ol>
+  <div class="section" id="ros-interface-operation">
+<h1>ROS Interface Operation<a class="headerlink" href="#ros-interface-operation" title="Permalink to this headline"></a></h1>
+<p>Follow the links below to your ROS version’s operation guide.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ros_interface/ros1.html">ROS 1 Interface Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_interface/ros2.html">ROS 2 Interface Operation</a></li>
+</ul>
 </div>
 </div>
 
@@ -125,8 +115,8 @@ The screen with turn on and a chime will play.</li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../operation.html" class="btn btn-neutral float-left" title="Operation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ros_interface.html" class="btn btn-neutral float-right" title="ROS Interface Operation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="rc_controller.html" class="btn btn-neutral float-left" title="Remote Controller Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ros_interface/ros1.html" class="btn btn-neutral float-right" title="ROS 1 Interface Operation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
