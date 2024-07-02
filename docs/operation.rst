@@ -3,6 +3,7 @@ Operation
 =========
 
 .. toctree::
-  :maxdepth: 3
+  :maxdepth: 1
 
   operation/rc_controller.rst
+  operation/ros_interface.rst
