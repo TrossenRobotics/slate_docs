@@ -81,10 +81,10 @@ The **slate_base_node** has the following parameters:
   * **Default**: ``"base_link"``
 
 Usage
-=====
+-----
 
 Using ros2run
--------------
+^^^^^^^^^^^^^
 
 .. code-block:: bash
 

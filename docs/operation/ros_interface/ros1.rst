@@ -14,12 +14,12 @@ The **slate_base_node** publishes to the following topics:
 
 * ``odom``
 
-  * **Type**: ``nav_msgs/msg/Odometry``
+  * **Type**: ``nav_msgs/Odometry``
   * **Description**: The odometry of the base.
 
 * ``battery_state``
 
-  * **Type**: ``sensor_msgs/msg/BatteryState``
+  * **Type**: ``sensor_msgs/BatteryState``
   * **Description**: Battery state information including present voltage and state of charge.
 
 Subscribers
@@ -29,7 +29,7 @@ The **slate_base_node** subscribes to the following topics:
 
 * ``cmd_vel``
 
-  * **Type**: ``geometry_msgs/msg/Twist``
+  * **Type**: ``geometry_msgs/Twist``
   * **Description**: Velocity commands
 
 Services
@@ -39,12 +39,12 @@ The **slate_base_node** provides the following service servers:
 
 * ``set_text``
 
-  * **Type**: ``std_srvs/srv/SetString``
+  * **Type**: ``std_srvs/SetString``
   * **Description**: Sets the text on the SLATE screen.
 
 * ``set_motor_torque_status``
 
-  * **Type**: ``std_srvs/srv/SetBool``
+  * **Type**: ``std_srvs/SetBool``
   * **Description**: If true, enables torque on the drive wheels.
     If false, disables torque on the drive wheels.
 
@@ -54,7 +54,7 @@ The **slate_base_node** provides the following service servers:
 
 * ``enable_charging``
 
-  * **Type**: ``std_srvs/srv/SetBool``
+  * **Type**: ``std_srvs/SetBool``
   * **Description**: If true, enables charging via the contact charger.
 
 Parameters
@@ -81,10 +81,10 @@ The **slate_base_node** has the following parameters:
   * **Default**: ``"base_link"``
 
 Usage
-=====
+-----
 
 Using rosrun
-------------
+^^^^^^^^^^^^
 
 .. code-block:: bash
 
