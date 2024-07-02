@@ -29,8 +29,6 @@ The following table lists common errors that can be indicated on the base's scre
     Hall Error                     Err33        The Hall sensor signal is malformed             Contact support
   ============================== ============ =============================================== ===========================================================
 
-
-
 SLATE driver can't connect to base
 ==================================
 
