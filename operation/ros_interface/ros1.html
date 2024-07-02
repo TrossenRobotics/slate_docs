@@ -71,10 +71,10 @@
 <li class="toctree-l5"><a class="reference internal" href="#subscribers">Subscribers</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#services">Services</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#using-rosrun">Using rosrun</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#using-rosrun">Using rosrun</a></li>
 </ul>
 </li>
 </ul>
@@ -124,12 +124,12 @@
 <p>The <strong>slate_base_node</strong> publishes to the following topics:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">odom</span></code><ul>
-<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">nav_msgs/msg/Odometry</span></code></li>
+<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">nav_msgs/Odometry</span></code></li>
 <li><strong>Description</strong>: The odometry of the base.</li>
 </ul>
 </li>
 <li><code class="docutils literal notranslate"><span class="pre">battery_state</span></code><ul>
-<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">sensor_msgs/msg/BatteryState</span></code></li>
+<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">sensor_msgs/BatteryState</span></code></li>
 <li><strong>Description</strong>: Battery state information including present voltage and state of charge.</li>
 </ul>
 </li>
@@ -140,7 +140,7 @@
 <p>The <strong>slate_base_node</strong> subscribes to the following topics:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code><ul>
-<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">geometry_msgs/msg/Twist</span></code></li>
+<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">geometry_msgs/Twist</span></code></li>
 <li><strong>Description</strong>: Velocity commands</li>
 </ul>
 </li>
@@ -152,13 +152,13 @@
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">set_text</span></code></p>
 <ul class="simple">
-<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">std_srvs/srv/SetString</span></code></li>
+<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">std_srvs/SetString</span></code></li>
 <li><strong>Description</strong>: Sets the text on the SLATE screen.</li>
 </ul>
 </li>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">set_motor_torque_status</span></code></p>
 <ul class="simple">
-<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">std_srvs/srv/SetBool</span></code></li>
+<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">std_srvs/SetBool</span></code></li>
 <li><strong>Description</strong>: If true, enables torque on the drive wheels.
 If false, disables torque on the drive wheels.</li>
 </ul>
@@ -169,7 +169,7 @@ If false, disables torque on the drive wheels.</li>
 </li>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">enable_charging</span></code></p>
 <ul class="simple">
-<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">std_srvs/srv/SetBool</span></code></li>
+<li><strong>Type</strong>: <code class="docutils literal notranslate"><span class="pre">std_srvs/SetBool</span></code></li>
 <li><strong>Description</strong>: If true, enables charging via the contact charger.</li>
 </ul>
 </li>
@@ -199,13 +199,13 @@ If false, disables torque on the drive wheels.</li>
 </li>
 </ul>
 </div>
-</div>
 <div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h3>
 <div class="section" id="using-rosrun">
-<h3>Using rosrun<a class="headerlink" href="#using-rosrun" title="Permalink to this headline"></a></h3>
+<h4>Using rosrun<a class="headerlink" href="#using-rosrun" title="Permalink to this headline"></a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rosrun<span class="w"> </span>interbotix_slate_driver<span class="w"> </span>slate_base_node
 </pre></div>
+</div>
 </div>
 </div>
 </div>
