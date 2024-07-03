@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hardware Setup &mdash; SLATE Documentation</title>
+  <title>Basic Usage &mdash; SLATE Documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sphinx_collapse.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Basic Usage" href="basic_usage.html" />
-    <link rel="prev" title="Getting Started" href="../getting_started.html" /> 
+    <link rel="next" title="ROS Interface Getting Started" href="ros_interface.html" />
+    <link rel="prev" title="Hardware Setup" href="hardware_setup.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,11 +62,13 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../specifications.html">Specifications</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Hardware Setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#battery-installation">Battery Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_setup.html">Hardware Setup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rear-interface-panel">Rear Interface Panel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#top-interface-panel">Top Interface Panel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plug-in-charger">Plug-In Charger</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="basic_usage.html">Basic Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ros_interface.html">ROS Interface Getting Started</a></li>
 </ul>
 </li>
@@ -90,9 +92,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../getting_started.html">Getting Started</a></li>
-      <li class="breadcrumb-item active">Hardware Setup</li>
+      <li class="breadcrumb-item active">Basic Usage</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/TrossenRobotics/slate_docs/blob/main/docs/getting_started/hardware_setup.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/TrossenRobotics/slate_docs/blob/main/docs/getting_started/basic_usage.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -100,21 +102,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="hardware-setup">
-<h1>Hardware Setup<a class="headerlink" href="#hardware-setup" title="Permalink to this headline"></a></h1>
-<div class="section" id="battery-installation">
-<h2>Battery Installation<a class="headerlink" href="#battery-installation" title="Permalink to this headline"></a></h2>
-<div class="video_wrapper align-center" style="text-align: center">
-<iframe allowfullscreen="true" src="https://www.youtube.com/embed/jGF-EfzXok4" style="border: 0; height: 345px; width: 560px">
-</iframe></div></div>
+  <div class="section" id="basic-usage">
+<h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline"></a></h1>
+<div class="section" id="rear-interface-panel">
+<h2>Rear Interface Panel<a class="headerlink" href="#rear-interface-panel" title="Permalink to this headline"></a></h2>
+<img alt="../_images/panel_rear.jpg" class="align-center" src="../_images/panel_rear.jpg" style="width: 80%;" />
+<p>Interfaces from the left:</p>
+<ul class="simple">
+<li>Charger Port</li>
+<li>Screen</li>
+<li>Power Button</li>
+<li>Emergency Stop Button</li>
+</ul>
+</div>
+<div class="section" id="top-interface-panel">
+<h2>Top Interface Panel<a class="headerlink" href="#top-interface-panel" title="Permalink to this headline"></a></h2>
+<img alt="../_images/panel_top.jpg" class="align-center" src="../_images/panel_top.jpg" style="width: 80%;" />
+<p>Interface from the left:</p>
+<ul class="simple">
+<li>Unused</li>
+<li>Power breakout — VBat (~24V), 12V</li>
+<li>Serial</li>
+<li>RJ45 (Unused)</li>
+</ul>
+</div>
+<div class="section" id="plug-in-charger">
+<h2>Plug-In Charger<a class="headerlink" href="#plug-in-charger" title="Permalink to this headline"></a></h2>
+<img alt="../_images/charger.jpg" class="align-center" src="../_images/charger.jpg" style="width: 60%;" />
+<p>The SLATE base comes with a plug-in battery charger with the following specifications:</p>
+<ul class="simple">
+<li>~110VAC 60Hz On</li>
+<li>24VDC - 29.4VDC Out</li>
+<li>5A</li>
+<li>160W</li>
+</ul>
+<p>To charge the SLATE base’s battery, plug the charger’s barrel jack into the base’s Charger Port.
+See the <a class="reference internal" href="#rear-interface-panel"><span class="std std-ref">Rear Interface Panel</span></a> for details on the port.</p>
+</div>
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="basic_usage.html" class="btn btn-neutral float-right" title="Basic Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hardware_setup.html" class="btn btn-neutral float-left" title="Hardware Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ros_interface.html" class="btn btn-neutral float-right" title="ROS Interface Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
