@@ -149,10 +149,11 @@ $<span class="w"> </span>rosdep<span class="w"> </span>install<span class="w"> <
 </div>
 </div></blockquote>
 <ol class="arabic simple">
-<li>Build the workspace.</li>
+<li>Build the workspace, making sure that you have sourced your ROS system installation first.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/interbotix_ws
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/<span class="nv">$ROS_DISTRO</span>/setup.bash
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/interbotix_ws
 $<span class="w"> </span>colcon<span class="w"> </span>build
 </pre></div>
 </div>
@@ -169,8 +170,10 @@ Solving this issue is as simple as removing the package using apt.</p>
 </div>
 <div class="section" id="verification">
 <h2>Verification<a class="headerlink" href="#verification" title="Permalink to this headline"></a></h2>
-<p>Run the driver using ros2run and check that the driver successfully connects to the base.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>interbotix_slate_driver<span class="w"> </span>slate_base_node
+<p>Configure your terminal environment, run the driver using ros2run, and check that the driver successfully connects to the base.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/<span class="nv">$ROS_DISTRO</span>/setup.bash
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/interbotix_ws/install/setup.bash
+$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>interbotix_slate_driver<span class="w"> </span>slate_base_node
 </pre></div>
 </div>
 </div>
