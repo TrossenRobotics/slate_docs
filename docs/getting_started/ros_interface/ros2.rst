@@ -39,12 +39,13 @@ Install the Interbotix ROS Slate Packages
     $ cd ~/interbotix_ws
     $ rosdep install --from-paths src --ignore-src -r -y
 
-#.  Build the workspace.
+#.  Build the workspace, making sure that you have sourced your ROS system installation first.
 
   .. code-block:: bash
 
-      $ cd ~/interbotix_ws
-      $ colcon build
+    $ source /opt/ros/$ROS_DISTRO/setup.bash
+    $ cd ~/interbotix_ws
+    $ colcon build
 
 Post-Install
 ============
@@ -60,8 +61,10 @@ Solving this issue is as simple as removing the package using apt.
 Verification
 ============
 
-Run the driver using ros2run and check that the driver successfully connects to the base.
+Configure your terminal environment, run the driver using ros2run, and check that the driver successfully connects to the base.
 
 .. code-block:: bash
 
+  $ source /opt/ros/$ROS_DISTRO/setup.bash
+  $ source ~/interbotix_ws/install/setup.bash
   $ ros2 run interbotix_slate_driver slate_base_node
