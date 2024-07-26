@@ -37,7 +37,7 @@ Specifications Overview
   * - Motor
     - 2 x 350w hub motors
   * - Maximum Speed
-    - 3.6k/hr
+    - 1.0m/s (3.6km/hr)
   * - Turning Radius
     - 0°
   * - Payload Capacity
