@@ -23,10 +23,33 @@ Top Interface Panel
   :align: center
   :width: 80%
 
-Interface from the left:
+Interfaces from the left:
 
 * Unused
-* Power breakout — VBat (~24V), 12V
+* Power breakout — VBat (19V-29V 5A), 12V 2A
+
+  .. list-table::
+    :align: center
+
+    * - .. image:: images/power_breakout_pinout.png
+          :align: center
+          :width: 185px
+
+      - .. list-table::
+          :header-rows: 1
+          :align: center
+
+          * - Pin
+            - Description
+          * - 1
+            - 19V-29V 5A
+          * - 2
+            - GND
+          * - 3
+            - 12V 2A
+          * - 4
+            - GND
+
 * Serial
 * RJ45 (Unused)
 
