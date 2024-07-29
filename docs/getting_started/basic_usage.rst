@@ -26,7 +26,7 @@ Top Interface Panel
 Interfaces from the left:
 
 * Unused
-* Power breakout — VBat (19V-29V 5A), 12V 2A
+* Power Breakout
 
   .. list-table::
     :align: center
@@ -42,7 +42,7 @@ Interfaces from the left:
           * - Pin
             - Description
           * - 1
-            - 19V-29V 5A
+            - VBat (19V-29V) 5A
           * - 2
             - GND
           * - 3
