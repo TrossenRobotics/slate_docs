@@ -76,7 +76,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#rear-interface-panel">Rear Interface Panel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#top-interface-panel">Top Interface Panel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#plug-in-charger">Plug-In Charger</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#contact-charger">Contact Charger</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ros_interface.html">ROS Interface Getting Started</a></li>
@@ -191,24 +190,6 @@
 See the <a class="reference internal" href="#rear-interface-panel"><span class="std std-ref">Rear Interface Panel</span></a> for details on the port.</p>
 <p>While charging, the plug-in charger’s LED will be red.
 When fully charged or disconnected, the plug-in charger’s LED will be green.</p>
-</div>
-<div class="section" id="contact-charger">
-<h2>Contact Charger<a class="headerlink" href="#contact-charger" title="Permalink to this headline"></a></h2>
-<p>The SLATE base comes with a contact charger.</p>
-<p>To charge the SLATE base’s battery with the contact charger, follow the procedure below:</p>
-<ol class="arabic simple">
-<li>Plug the plug-in charger into the contact charger’s barrel jack port.</li>
-<li>Press the power button on the contact charger to turn it on.
-The power button will turn green when on.</li>
-<li>Drive the SLATE base into the contact charger, ensuring that both pads on the base and the retractable contacts on the contact charger are touching.</li>
-<li>Use the <code class="docutils literal notranslate"><span class="pre">enable_charging</span></code> service of the SLATE’s ROS driver to activate the base’s internal charging relay.</li>
-<li>Check the following two indications to ensure the base is charging:<ul>
-<li>The light on the top of the contact charger turns green</li>
-<li>The base’s screen reports a “Charging” status</li>
-</ul>
-</li>
-<li>The light on the top of the contact charger will turn off when the base is fully charged.</li>
-</ol>
 </div>
 </div>
 

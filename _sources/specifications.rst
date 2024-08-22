@@ -8,7 +8,6 @@ Packing List
 * 1x SLATE Robot
 * 1x Remote Controller
 * 1x Charging Plug
-* 1x Contact Charger
 * 1x Male-to-Male USB Type-A 3.0
 * 1x Aviation Plug to Screw Terminated VBAT, 12V
 
