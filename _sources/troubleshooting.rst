@@ -32,7 +32,7 @@ The following table lists common errors that can be indicated on the base's scre
 SLATE driver can't connect to base
 ==================================
 
-The USB-Serial converter device shares the same vendor and product ID with some brail readers.
+The USB-Serial converter device shares the same vendor and product ID with some braille readers.
 Because of this, the ``brltty`` program may claim the device, preventing its use by other drivers.
 Solving this issue is as simple as removing the package using apt.
 
