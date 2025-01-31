@@ -7,26 +7,26 @@ Installing ROS 2
 
 .. note::
 
-  The ROS 2 Interbotix SLATE packages are compatible with the following distributions: Galactic, Humble, and Iron on Ubuntu 22.04, and Jazzy and Rolling on Ubuntu 24.04.
+  The ROS 2 Interbotix SLATE packages are compatible with the following distributions: Humble on Ubuntu 22.04 and Jazzy on Ubuntu 24.04.
 
 Follow the ROS 2 installation guide for your specific version on the ROS documentation site:
 
-- `Galactic`_ (Ubuntu 22.04)
 - `Humble`_ (Ubuntu 22.04)
-- `Iron`_ (Ubuntu 22.04)
 - `Jazzy`_ (Ubuntu 24.04)
-- `Rolling`_ (Ubuntu 24.04)
 
-.. _Galactic: https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html
 .. _Humble: https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
-.. _Iron: https://docs.ros.org/en/iron/Installation/Ubuntu-Install-Debians.html
 .. _Jazzy: https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html
-.. _Rolling: https://docs.ros.org/en/rolling/Installation/Ubuntu-Install-Debians.html
 
 Configuring Port Permissions
 ============================
 
 The SLATE uses a USB-Serial converter to communicate with the host computer.
+
+Remove ``brltty`` to prevent it from claiming the device:
+
+.. code-block:: bash
+
+  $ sudo apt-get remove brltty
 
 Add your user to the dialout group:
 
@@ -49,7 +49,6 @@ Clone the repository and remove the COLCON_IGNORE file:
 
   $ mkdir -p ~/interbotix_ws/src
   $ cd ~/interbotix_ws/src
-  $ export ROS_DISTRO=humble  # Replace 'humble' with your desired ROS distribution
   $ git clone --recursive -b $ROS_DISTRO https://github.com/Interbotix/interbotix_ros_core.git
   $ rm ~/interbotix_ws/src/interbotix_ros_core/interbotix_ros_slate/COLCON_IGNORE
 
@@ -73,7 +72,8 @@ Build the workspace:
 Running the Driver
 ==================
 
-Turn on the SLATE and connect it to your computer via USB. Configure your terminal environment and run the driver:
+Turn on the SLATE and connect it to your computer via USB.
+Configure your terminal environment and run the driver:
 
 .. code-block:: bash
 
@@ -89,4 +89,5 @@ If successful, you should see output similar to the following:
   Initialized base at port: '/dev/ttyUSB0'.
   Base version: 'v1.0.0'.
 
-For more detailed usage of the driver, please refer to :doc:`../../operation/ros_interface/ros2`. See :doc:`../../troubleshooting` for common issues and solutions.
+For more detailed usage of the driver, please refer to :doc:`../../operation/ros_interface/ros2`.
+See :doc:`../../troubleshooting` for common issues and solutions.

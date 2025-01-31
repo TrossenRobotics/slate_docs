@@ -18,6 +18,12 @@ Configuring Port Permissions
 
 The SLATE uses a USB-Serial converter to communicate with the host computer.
 
+Remove ``brltty`` to prevent it from claiming the device:
+
+.. code-block:: bash
+
+  $ sudo apt-get remove brltty
+
 Add your user to the dialout group:
 
 .. code-block:: bash
@@ -62,7 +68,8 @@ Build the workspace:
 Running the Driver
 ==================
 
-Turn on the SLATE and connect it to your computer via USB. Configure your terminal environment and run the ROS master node:
+Turn on the SLATE and connect it to your computer via USB.
+Configure your terminal environment and run the ROS master node:
 
 .. code-block:: bash
 
@@ -88,4 +95,5 @@ If successful, you should see output similar to the following:
   [ INFO] [1738191485.305142044]: Initialized base at port '/dev/ttyUSB0'.
   [ INFO] [1738191485.310998047]: Base version: 1.0.0
 
-For more detailed usage of the driver, please refer to :doc:`../../operation/ros_interface/ros1`. See :doc:`../../troubleshooting` for common issues and solutions.
+For more detailed usage of the driver, please refer to :doc:`../../operation/ros_interface/ros1`.
+See :doc:`../../troubleshooting` for common issues and solutions.

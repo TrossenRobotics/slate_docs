@@ -83,7 +83,8 @@ The **slate_base_node** has the following parameters:
 Examples
 --------
 
-The **slate_base_node** is designed to be controlled by other user-written nodes that publish to the ``cmd_vel`` topic or call the services provided by the **slate_base_node**. Below are some examples of how to interact with the **slate_base_node** using ROS 1 command line tools.
+The **slate_base_node** is designed to be controlled by other user-written nodes that publish to the ``cmd_vel`` topic or call the services provided by the **slate_base_node**.
+Below are some examples of how to interact with the **slate_base_node** using ROS 1 command line tools.
 
 Setting Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -123,7 +124,13 @@ You can call services provided by the **slate_base_node** using the ``rosservice
 Publishing Velocity Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can publish velocity commands to the **slate_base_node** using the ``rostopic pub`` command. ``-r 10`` sets the publishing rate to 10 Hz.
+You can publish velocity commands to the **slate_base_node** using the ``rostopic pub`` command.
+``-r 10`` sets the publishing rate to 10 Hz.
+
+.. warning::
+
+  These commands will move the base, so make sure the SLATE is in a safe location before running them.
+  Press ``Ctrl+C`` to stop the command at any time.
 
 .. code-block:: bash
 

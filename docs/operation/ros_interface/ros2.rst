@@ -5,8 +5,7 @@ ROS 2 Interface Operation
 SLATE Base Node
 ===============
 
-The SLATE interfaces with ROS 2 using the **slate_base_node** from the
-**interbotix_slate_driver** package.
+The SLATE interfaces with ROS 2 using the **slate_base_node** from the **interbotix_slate_driver** package.
 
 Publishers
 ----------
@@ -95,7 +94,8 @@ The **slate_base_node** has the following parameters:
 Examples
 --------
 
-The **slate_base_node** is designed to be controlled by other user-written nodes that publish to the ``cmd_vel`` topic or call the services provided by the **slate_base_node**. Below are some examples of how to interact with the **slate_base_node** using ROS 2 command line tools.
+The **slate_base_node** is designed to be controlled by other user-written nodes that publish to the ``cmd_vel`` topic or call the services provided by the **slate_base_node**.
+Below are some examples of how to interact with the **slate_base_node** using ROS 2 command line tools.
 
 Setting Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -138,12 +138,19 @@ You can call services provided by the **slate_base_node** using the ``ros2 servi
 Publishing Velocity Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can publish velocity commands to the **slate_base_node** using the ``ros2 topic pub`` command. ``-r 10`` sets the publishing rate to 10 Hz.
+You can publish velocity commands to the **slate_base_node** using the ``ros2 topic pub`` command.
+``-r 10`` sets the publishing rate to 10 Hz.
+``-t 3`` publishes the message 3 times.
+
+.. warning::
+
+  These commands will move the base, so make sure the SLATE is in a safe location before running them.
+  Press ``Ctrl+C`` to stop the command at any time.
 
 .. code-block:: bash
 
   # Publish a velocity command to move forward
-  $ ros2 topic pub -r 10 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
+  $ ros2 topic pub -r 10 -t 3 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
 
   # Publish a velocity command to rotate counter-clockwise
-  $ ros2 topic pub -r 10 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.1}}"
+  $ ros2 topic pub -r 10 -t 3 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.1}}"
