@@ -67,7 +67,7 @@ The **slate_base_node** has the following parameters:
   * **Type**: int
   * **Description**: The frequency in Hz of the SLATE update loop.
   This is the rate at which the SLATE updates based on the incoming data.
-  * **Default**: ``10``
+  * **Default**: ``20``
 
 * ``publish_tf``:
 
