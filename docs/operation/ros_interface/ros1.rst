@@ -80,12 +80,62 @@ The **slate_base_node** has the following parameters:
   * **Description**: The name of the base_link frame when publishing the odom->base_link TF.
   * **Default**: ``"base_link"``
 
-Usage
------
+Examples
+--------
 
-Using rosrun
-^^^^^^^^^^^^
+The **slate_base_node** is designed to be controlled by other user-written nodes that publish to the ``cmd_vel`` topic or call the services provided by the **slate_base_node**.
+Below are some examples of how to interact with the **slate_base_node** using ROS 1 command line tools.
+
+Setting Parameters
+^^^^^^^^^^^^^^^^^^
+
+You can set parameters for the **slate_base_node** when running it using the ``_param`` flag.
 
 .. code-block:: bash
 
-  $ rosrun interbotix_slate_driver slate_base_node
+  # Enable publishing of the odom->base_link TF
+  $ rosrun interbotix_slate_driver slate_base_node _publish_tf:=true
+
+  # Set the odometry frame name to "my_odom"
+  $ rosrun interbotix_slate_driver slate_base_node _odom_frame_name:="my_odom"
+
+  # Set the base frame name to "my_base"
+  $ rosrun interbotix_slate_driver slate_base_node _base_frame_name:="my_base"
+
+Calling Services
+^^^^^^^^^^^^^^^^
+
+You can call services provided by the **slate_base_node** using the ``rosservice call`` command.
+
+.. code-block:: bash
+
+  # Disable charging
+  $ rosservice call /enable_charging std_srvs/SetBool "{data: false}"
+
+  # Set the lights to color BLUE
+  $ rosservice call /set_light_state interbotix_slate_msgs/SetLightState "{light_state: 4}"
+
+  # Set the text to "hello world" on the SLATE screen
+  $ rosservice call /set_text interbotix_slate_msgs/SetString "{data: 'hello world'}"
+
+  # Disable torque on the drive wheels
+  $ rosservice call /set_motor_torque_status std_srvs/SetBool "{data: false}"
+
+Publishing Velocity Commands
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can publish velocity commands to the **slate_base_node** using the ``rostopic pub`` command.
+``-r 10`` sets the publishing rate to 10 Hz.
+
+.. warning::
+
+  These commands will move the base, so make sure the SLATE is in a safe location before running them.
+  Press ``Ctrl+C`` to stop the command at any time.
+
+.. code-block:: bash
+
+  # Publish a velocity command to move forward
+  $ rostopic pub -r 10 /cmd_vel geometry_msgs/Twist "{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
+
+  # Publish a velocity command to rotate counter-clockwise
+  $ rostopic pub -r 10 /cmd_vel geometry_msgs/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.1}}"
