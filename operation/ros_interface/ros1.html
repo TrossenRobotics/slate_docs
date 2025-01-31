@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ROS 1 Interface Operation &mdash; SLATE Documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sphinx_collapse.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/tr_style.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_collapse.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tr_style.css" />
+
+  
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -18,6 +20,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
@@ -79,8 +82,10 @@
 <li class="toctree-l5"><a class="reference internal" href="#subscribers">Subscribers</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#services">Services</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#parameters">Parameters</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#usage">Usage</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="#using-rosrun">Using rosrun</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#setting-parameters">Setting Parameters</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#calling-services">Calling Services</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#publishing-velocity-commands">Publishing Velocity Commands</a></li>
 </ul>
 </li>
 </ul>
@@ -123,12 +128,12 @@
            <div itemprop="articleBody">
              
   <div class="section" id="ros-1-interface-operation">
-<h1>ROS 1 Interface Operation<a class="headerlink" href="#ros-1-interface-operation" title="Permalink to this headline"></a></h1>
+<h1>ROS 1 Interface Operation<a class="headerlink" href="#ros-1-interface-operation" title="Permalink to this heading"></a></h1>
 <div class="section" id="slate-base-node">
-<h2>SLATE Base Node<a class="headerlink" href="#slate-base-node" title="Permalink to this headline"></a></h2>
+<h2>SLATE Base Node<a class="headerlink" href="#slate-base-node" title="Permalink to this heading"></a></h2>
 <p>The SLATE interfaces with ROS using the <strong>slate_base_node</strong> from the <strong>interbotix_slate_driver</strong> package.</p>
 <div class="section" id="publishers">
-<h3>Publishers<a class="headerlink" href="#publishers" title="Permalink to this headline"></a></h3>
+<h3>Publishers<a class="headerlink" href="#publishers" title="Permalink to this heading"></a></h3>
 <p>The <strong>slate_base_node</strong> publishes to the following topics:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">odom</span></code><ul>
@@ -144,7 +149,7 @@
 </ul>
 </div>
 <div class="section" id="subscribers">
-<h3>Subscribers<a class="headerlink" href="#subscribers" title="Permalink to this headline"></a></h3>
+<h3>Subscribers<a class="headerlink" href="#subscribers" title="Permalink to this heading"></a></h3>
 <p>The <strong>slate_base_node</strong> subscribes to the following topics:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code><ul>
@@ -155,7 +160,7 @@
 </ul>
 </div>
 <div class="section" id="services">
-<h3>Services<a class="headerlink" href="#services" title="Permalink to this headline"></a></h3>
+<h3>Services<a class="headerlink" href="#services" title="Permalink to this heading"></a></h3>
 <p>The <strong>slate_base_node</strong> provides the following service servers:</p>
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">set_text</span></code></p>
@@ -184,7 +189,7 @@ If false, disables torque on the drive wheels.</li>
 </ul>
 </div>
 <div class="section" id="parameters">
-<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline"></a></h3>
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h3>
 <p>The <strong>slate_base_node</strong> has the following parameters:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">publish_tf</span></code>:<ul>
@@ -207,11 +212,55 @@ If false, disables torque on the drive wheels.</li>
 </li>
 </ul>
 </div>
-<div class="section" id="usage">
-<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h3>
-<div class="section" id="using-rosrun">
-<h4>Using rosrun<a class="headerlink" href="#using-rosrun" title="Permalink to this headline"></a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rosrun<span class="w"> </span>interbotix_slate_driver<span class="w"> </span>slate_base_node
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h3>
+<p>The <strong>slate_base_node</strong> is designed to be controlled by other user-written nodes that publish to the <code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> topic or call the services provided by the <strong>slate_base_node</strong>.
+Below are some examples of how to interact with the <strong>slate_base_node</strong> using ROS 1 command line tools.</p>
+<div class="section" id="setting-parameters">
+<h4>Setting Parameters<a class="headerlink" href="#setting-parameters" title="Permalink to this heading"></a></h4>
+<p>You can set parameters for the <strong>slate_base_node</strong> when running it using the <code class="docutils literal notranslate"><span class="pre">_param</span></code> flag.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable publishing of the odom-&gt;base_link TF</span>
+$<span class="w"> </span>rosrun<span class="w"> </span>interbotix_slate_driver<span class="w"> </span>slate_base_node<span class="w"> </span>_publish_tf:<span class="o">=</span><span class="nb">true</span>
+
+<span class="c1"># Set the odometry frame name to &quot;my_odom&quot;</span>
+$<span class="w"> </span>rosrun<span class="w"> </span>interbotix_slate_driver<span class="w"> </span>slate_base_node<span class="w"> </span>_odom_frame_name:<span class="o">=</span><span class="s2">&quot;my_odom&quot;</span>
+
+<span class="c1"># Set the base frame name to &quot;my_base&quot;</span>
+$<span class="w"> </span>rosrun<span class="w"> </span>interbotix_slate_driver<span class="w"> </span>slate_base_node<span class="w"> </span>_base_frame_name:<span class="o">=</span><span class="s2">&quot;my_base&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calling-services">
+<h4>Calling Services<a class="headerlink" href="#calling-services" title="Permalink to this heading"></a></h4>
+<p>You can call services provided by the <strong>slate_base_node</strong> using the <code class="docutils literal notranslate"><span class="pre">rosservice</span> <span class="pre">call</span></code> command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disable charging</span>
+$<span class="w"> </span>rosservice<span class="w"> </span>call<span class="w"> </span>/enable_charging<span class="w"> </span>std_srvs/SetBool<span class="w"> </span><span class="s2">&quot;{data: false}&quot;</span>
+
+<span class="c1"># Set the lights to color BLUE</span>
+$<span class="w"> </span>rosservice<span class="w"> </span>call<span class="w"> </span>/set_light_state<span class="w"> </span>interbotix_slate_msgs/SetLightState<span class="w"> </span><span class="s2">&quot;{light_state: 4}&quot;</span>
+
+<span class="c1"># Set the text to &quot;hello world&quot; on the SLATE screen</span>
+$<span class="w"> </span>rosservice<span class="w"> </span>call<span class="w"> </span>/set_text<span class="w"> </span>interbotix_slate_msgs/SetString<span class="w"> </span><span class="s2">&quot;{data: &#39;hello world&#39;}&quot;</span>
+
+<span class="c1"># Disable torque on the drive wheels</span>
+$<span class="w"> </span>rosservice<span class="w"> </span>call<span class="w"> </span>/set_motor_torque_status<span class="w"> </span>std_srvs/SetBool<span class="w"> </span><span class="s2">&quot;{data: false}&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="publishing-velocity-commands">
+<h4>Publishing Velocity Commands<a class="headerlink" href="#publishing-velocity-commands" title="Permalink to this heading"></a></h4>
+<p>You can publish velocity commands to the <strong>slate_base_node</strong> using the <code class="docutils literal notranslate"><span class="pre">rostopic</span> <span class="pre">pub</span></code> command.
+<code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">10</span></code> sets the publishing rate to 10 Hz.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">These commands will move the base, so make sure the SLATE is in a safe location before running them.
+Press <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> to stop the command at any time.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Publish a velocity command to move forward</span>
+$<span class="w"> </span>rostopic<span class="w"> </span>pub<span class="w"> </span>-r<span class="w"> </span><span class="m">10</span><span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/Twist<span class="w"> </span><span class="s2">&quot;{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}&quot;</span>
+
+<span class="c1"># Publish a velocity command to rotate counter-clockwise</span>
+$<span class="w"> </span>rostopic<span class="w"> </span>pub<span class="w"> </span>-r<span class="w"> </span><span class="m">10</span><span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/Twist<span class="w"> </span><span class="s2">&quot;{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.1}}&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -230,7 +279,7 @@ If false, disables torque on the drive wheels.</li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Trossen Robotics.</p>
+    <p>&#169; Copyright 2025, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

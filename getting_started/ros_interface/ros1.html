@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ROS 1 Getting Started &mdash; SLATE Documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sphinx_collapse.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/tr_style.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_collapse.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tr_style.css" />
+
+  
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -18,6 +20,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
@@ -74,10 +77,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../basic_usage.html">Basic Usage</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../ros_interface.html">ROS Interface Getting Started</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">ROS 1 Getting Started</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#install-ros">Install ROS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#install-the-interbotix-ros-slate-packages">Install the Interbotix ROS Slate Packages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#post-install">Post-Install</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#verification">Verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-ros-1">Installing ROS 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-port-permissions">Configuring Port Permissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-the-interbotix-ros-slate-packages">Installing the Interbotix ROS SLATE Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-driver">Running the Driver</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ros2.html">ROS 2 Getting Started</a></li>
@@ -117,73 +120,79 @@
            <div itemprop="articleBody">
              
   <div class="section" id="ros-1-getting-started">
-<h1>ROS 1 Getting Started<a class="headerlink" href="#ros-1-getting-started" title="Permalink to this headline"></a></h1>
-<div class="section" id="install-ros">
-<h2>Install ROS<a class="headerlink" href="#install-ros" title="Permalink to this headline"></a></h2>
+<h1>ROS 1 Getting Started<a class="headerlink" href="#ros-1-getting-started" title="Permalink to this heading"></a></h1>
+<div class="section" id="installing-ros-1">
+<h2>Installing ROS 1<a class="headerlink" href="#installing-ros-1" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The ROS 1 Interbotix SLATE packages are only compatible with Noetic on Ubuntu 20.04.</p>
 </div>
-<p>Follow the <a class="reference external" href="https://wiki.ros.org/noetic/Installation/Ubuntu" rel="noopener noreferrer" target="_blank">Ubuntu install of ROS Noetic guide on the ROS Wiki</a>.
-Once installed, make sure to follow steps 1.6 and 1.6.1 to set up and install the development and dependency toolchains.</p>
+<p>Follow the <a class="reference external" href="https://wiki.ros.org/noetic/Installation/Ubuntu" rel="noopener noreferrer" target="_blank">Ubuntu install of ROS Noetic guide on the ROS Wiki</a>.</p>
 </div>
-<div class="section" id="install-the-interbotix-ros-slate-packages">
-<h2>Install the Interbotix ROS Slate Packages<a class="headerlink" href="#install-the-interbotix-ros-slate-packages" title="Permalink to this headline"></a></h2>
-<ol class="arabic simple">
-<li>Clone the noetic branch of the interbotix_ros_core repository into your catkin workspace.</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/interbotix_ws/src
+<div class="section" id="configuring-port-permissions">
+<h2>Configuring Port Permissions<a class="headerlink" href="#configuring-port-permissions" title="Permalink to this heading"></a></h2>
+<p>The SLATE uses a USB-Serial converter to communicate with the host computer.</p>
+<p>Remove <code class="docutils literal notranslate"><span class="pre">brltty</span></code> to prevent it from claiming the device:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span>brltty
+</pre></div>
+</div>
+<p>Add your user to the dialout group:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>dialout<span class="w"> </span><span class="nv">$USER</span>
+</pre></div>
+</div>
+<p>Reboot your computer to apply the changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-the-interbotix-ros-slate-packages">
+<h2>Installing the Interbotix ROS SLATE Packages<a class="headerlink" href="#installing-the-interbotix-ros-slate-packages" title="Permalink to this heading"></a></h2>
+<p>Clone the repository and remove the CATKIN_IGNORE file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/interbotix_ws/src
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/interbotix_ws/src
 $<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>noetic<span class="w"> </span>https://github.com/Interbotix/interbotix_ros_core.git
+$<span class="w"> </span>rm<span class="w"> </span>~/interbotix_ws/src/interbotix_ros_core/interbotix_ros_slate/CATKIN_IGNORE
 </pre></div>
 </div>
-</div></blockquote>
-<ol class="arabic simple">
-<li>Remove the CATKIN_IGNORE file preventing the interbotix_ros_slate metapackage from being built.</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rm<span class="w"> </span>~/interbotix_ws/src/interbotix_ros_core/interbotix_ros_slate/CATKIN_IGNORE
-</pre></div>
-</div>
-</div></blockquote>
-<ol class="arabic simple">
-<li>Run rosdep in the root of the workspace to install all required dependencies.</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/interbotix_ws
+<p>Install dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
+$<span class="w"> </span>rosdep<span class="w"> </span>update
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/interbotix_ws
 $<span class="w"> </span>rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
 </pre></div>
 </div>
-</div></blockquote>
-<ol class="arabic simple">
-<li>Build the workspace, making sure that you have sourced your ROS system installation first.</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/<span class="nv">$ROS_DISTRO</span>/setup.bash
+<p>Build the workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/noetic/setup.bash
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/interbotix_ws
 $<span class="w"> </span>catkin_make
 </pre></div>
 </div>
-</div></blockquote>
 </div>
-<div class="section" id="post-install">
-<h2>Post-Install<a class="headerlink" href="#post-install" title="Permalink to this headline"></a></h2>
-<p>The USB-Serial converter device shares the same vendor and product ID with some brail readers.
-Because of this, the <code class="docutils literal notranslate"><span class="pre">brltty</span></code> program may claim the device, preventing its use by other drivers.
-Solving this issue is as simple as removing the package using apt.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span>brltty
+<div class="section" id="running-the-driver">
+<h2>Running the Driver<a class="headerlink" href="#running-the-driver" title="Permalink to this heading"></a></h2>
+<p>Turn on the SLATE and connect it to your computer via USB.
+Configure your terminal environment and run the ROS master node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/noetic/setup.bash
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/interbotix_ws/devel/setup.bash
+$<span class="w"> </span>roscore
 </pre></div>
 </div>
-</div>
-<div class="section" id="verification">
-<h2>Verification<a class="headerlink" href="#verification" title="Permalink to this headline"></a></h2>
-<p>Configure your terminal environment, run the driver using rosrun, and check that the driver successfully connects to the base.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/<span class="nv">$ROS_DISTRO</span>/setup.bash
+<p>Open another terminal and run the driver:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/noetic/setup.bash
 $<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/interbotix_ws/devel/setup.bash
 $<span class="w"> </span>rosrun<span class="w"> </span>interbotix_slate_driver<span class="w"> </span>slate_base_node
 </pre></div>
 </div>
+<p>If successful, you should see output similar to the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>INFO<span class="w"> </span>console<span class="w"> </span><span class="o">[</span>uart.cpp:77<span class="w"> </span>uart_open_no_block<span class="o">]</span><span class="p">;</span><span class="w"> </span>Open<span class="w"> </span>Serial<span class="w"> </span>Port!
+INFO<span class="w"> </span>console<span class="w"> </span><span class="o">[</span>uart.cpp:79<span class="w"> </span>uart_open_no_block<span class="o">]</span><span class="p">;</span><span class="w"> </span>fd-&gt;open<span class="o">=</span><span class="p">;</span><span class="w"> </span><span class="m">10</span>
+INFO<span class="w"> </span>console<span class="w"> </span><span class="o">[</span>serial_driver.cpp:31<span class="w"> </span>init<span class="o">]</span><span class="p">;</span><span class="w"> </span>open<span class="w"> </span>the<span class="w"> </span>uart<span class="w"> </span>port<span class="w"> </span>success<span class="p">;</span><span class="w"> </span>/dev/ttyUSB0
+<span class="o">[</span><span class="w"> </span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1738191485</span>.305142044<span class="o">]</span>:<span class="w"> </span>Initialized<span class="w"> </span>base<span class="w"> </span>at<span class="w"> </span>port<span class="w"> </span><span class="s1">&#39;/dev/ttyUSB0&#39;</span>.
+<span class="o">[</span><span class="w"> </span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1738191485</span>.310998047<span class="o">]</span>:<span class="w"> </span>Base<span class="w"> </span>version:<span class="w"> </span><span class="m">1</span>.0.0
+</pre></div>
+</div>
+<p>For more detailed usage of the driver, please refer to <a class="reference internal" href="../../operation/ros_interface/ros1.html"><span class="doc">ROS 1 Interface Operation</span></a>.
+See <a class="reference internal" href="../../troubleshooting.html"><span class="doc">Troubleshooting</span></a> for common issues and solutions.</p>
 </div>
 </div>
 
@@ -198,7 +207,7 @@ $<span class="w"> </span>rosrun<span class="w"> </span>interbotix_slate_driver<s
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Trossen Robotics.</p>
+    <p>&#169; Copyright 2025, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
