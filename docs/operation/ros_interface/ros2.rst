@@ -20,8 +20,7 @@ The **slate_base_node** publishes to the following topics:
 * ``battery_state``
 
   * **Type**: ``sensor_msgs/msg/BatteryState``
-  * **Description**: Battery state information including present voltage
-    and state of charge.
+  * **Description**: Battery state information including present voltage and state of charge.
 
 Subscribers
 -----------
@@ -66,29 +65,26 @@ The **slate_base_node** has the following parameters:
 * ``update_frequency``:
 
   * **Type**: int
-  * **Description**: The frequency in Hz of the SLATE update loop. This is
-    the rate at which the SLATE updates based on the incoming data.
+  * **Description**: The frequency in Hz of the SLATE update loop.
+  This is the rate at which the SLATE updates based on the incoming data.
   * **Default**: ``10``
 
 * ``publish_tf``:
 
   * **Type**: bool
-  * **Description**: Setting this to true publishes the odom->base_link TF
-    following REP 105.
+  * **Description**: Setting this to true publishes the odom->base_link TF following REP 105.
   * **Default**: ``false``
 
 * ``odom_frame_name``:
 
   * **Type**: string
-  * **Description**: The name of the odometry frame when publishing the
-    odom->base_link TF.
+  * **Description**: The name of the odometry frame when publishing the odom->base_link TF.
   * **Default**: ``"odom"``
 
 * ``base_frame_name``:
 
   * **Type**: string
-  * **Description**: The name of the base_link frame when publishing the
-    odom->base_link TF.
+  * **Description**: The name of the base_link frame when publishing the odom->base_link TF.
   * **Default**: ``"base_link"``
 
 Examples
@@ -140,7 +136,8 @@ Publishing Velocity Commands
 
 You can publish velocity commands to the **slate_base_node** using the ``ros2 topic pub`` command.
 ``-r 10`` sets the publishing rate to 10 Hz.
-``-t 3`` publishes the message 3 times.
+``-t 30`` publishes the message 30 times.
+This has the effect of commanding the velocity to the base for three seconds.
 
 .. warning::
 
@@ -150,7 +147,7 @@ You can publish velocity commands to the **slate_base_node** using the ``ros2 to
 .. code-block:: bash
 
   # Publish a velocity command to move forward
-  $ ros2 topic pub -r 10 -t 3 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
+  $ ros2 topic pub -r 10 -t 30 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
 
   # Publish a velocity command to rotate counter-clockwise
-  $ ros2 topic pub -r 10 -t 3 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.1}}"
+  $ ros2 topic pub -r 10 -t 30 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.1}}"
