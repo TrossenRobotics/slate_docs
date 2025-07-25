@@ -32,12 +32,20 @@ The following table lists common errors that can be indicated on the base's scre
 SLATE driver can't connect to base
 ==================================
 
+``dialout`` Group
+-----------------
+
 Make sure that your user is added to the ``dialout`` group.
 You can do this by running the following command:
 
 .. code-block:: bash
 
   $ sudo usermod -aG dialout $USER
+
+Then log out and log back in for the changes to take effect.
+
+``brltty`` Package
+------------------
 
 The USB-Serial converter device shares the same vendor and product ID with some braille readers.
 Because of this, the ``brltty`` program may claim the device, preventing its use by other drivers.
