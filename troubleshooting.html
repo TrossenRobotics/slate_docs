@@ -76,7 +76,11 @@
 <li class="toctree-l1"><a class="reference internal" href="operation.html">Operation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#slate-base-error-codes">SLATE Base Error Codes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#slate-driver-can-t-connect-to-base">SLATE driver can’t connect to base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#slate-driver-can-t-connect-to-base">SLATE driver can’t connect to base</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dialout-group"><code class="docutils literal notranslate"><span class="pre">dialout</span></code> Group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#brltty-package"><code class="docutils literal notranslate"><span class="pre">brltty</span></code> Package</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
@@ -201,11 +205,23 @@
 </div>
 <div class="section" id="slate-driver-can-t-connect-to-base">
 <h2>SLATE driver can’t connect to base<a class="headerlink" href="#slate-driver-can-t-connect-to-base" title="Permalink to this heading"></a></h2>
+<div class="section" id="dialout-group">
+<h3><code class="docutils literal notranslate"><span class="pre">dialout</span></code> Group<a class="headerlink" href="#dialout-group" title="Permalink to this heading"></a></h3>
+<p>Make sure that your user is added to the <code class="docutils literal notranslate"><span class="pre">dialout</span></code> group.
+You can do this by running the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>dialout<span class="w"> </span><span class="nv">$USER</span>
+</pre></div>
+</div>
+<p>Then log out and log back in for the changes to take effect.</p>
+</div>
+<div class="section" id="brltty-package">
+<h3><code class="docutils literal notranslate"><span class="pre">brltty</span></code> Package<a class="headerlink" href="#brltty-package" title="Permalink to this heading"></a></h3>
 <p>The USB-Serial converter device shares the same vendor and product ID with some braille readers.
 Because of this, the <code class="docutils literal notranslate"><span class="pre">brltty</span></code> program may claim the device, preventing its use by other drivers.
 Solving this issue is as simple as removing the package using apt.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span>brltty
 </pre></div>
+</div>
 </div>
 </div>
 </div>
