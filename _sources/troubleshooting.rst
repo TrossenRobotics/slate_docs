@@ -54,3 +54,12 @@ Solving this issue is as simple as removing the package using apt.
 .. code-block:: bash
 
   $ sudo apt-get remove brltty
+
+Jetson Systems
+--------------
+
+The driver for the CH341 USB-Serial converter is not installed on modern Jetson systems by default.
+The guide below shows how to install it on Jetson systems running Jetpack 6.2 and Jetpack 6.2.1.
+
+.. youtube:: RHqSR3Wj_K0
+  :align: center

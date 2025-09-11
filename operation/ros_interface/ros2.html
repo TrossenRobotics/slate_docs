@@ -191,31 +191,27 @@ If false, disables torque on the drive wheels.</li>
 <div class="section" id="parameters">
 <h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h3>
 <p>The <strong>slate_base_node</strong> has the following parameters:</p>
-<ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">update_frequency</span></code>:</p>
 <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">update_frequency</span></code>:<ul>
 <li><strong>Type</strong>: int</li>
-<li><strong>Description</strong>: The frequency in Hz of the SLATE update loop.</li>
+<li><strong>Description</strong>: The frequency in Hz of the SLATE update loop.
+This is the rate at which the SLATE updates based on the incoming data.</li>
+<li><strong>Default</strong>: <code class="docutils literal notranslate"><span class="pre">20</span></code></li>
 </ul>
-<p>This is the rate at which the SLATE updates based on the incoming data.
-* <strong>Default</strong>: <code class="docutils literal notranslate"><span class="pre">20</span></code></p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">publish_tf</span></code>:</p>
-<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">publish_tf</span></code>:<ul>
 <li><strong>Type</strong>: bool</li>
 <li><strong>Description</strong>: Setting this to true publishes the odom-&gt;base_link TF following REP 105.</li>
 <li><strong>Default</strong>: <code class="docutils literal notranslate"><span class="pre">false</span></code></li>
 </ul>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">odom_frame_name</span></code>:</p>
-<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">odom_frame_name</span></code>:<ul>
 <li><strong>Type</strong>: string</li>
 <li><strong>Description</strong>: The name of the odometry frame when publishing the odom-&gt;base_link TF.</li>
 <li><strong>Default</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;odom&quot;</span></code></li>
 </ul>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">base_frame_name</span></code>:</p>
-<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">base_frame_name</span></code>:<ul>
 <li><strong>Type</strong>: string</li>
 <li><strong>Description</strong>: The name of the base_link frame when publishing the odom-&gt;base_link TF.</li>
 <li><strong>Default</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;base_link&quot;</span></code></li>
